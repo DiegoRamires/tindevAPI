@@ -1,10 +1,9 @@
 const express = require('express');
+const routes = require('./routes')
 
 const server = express()
-
-server.get('/', (req, res) => {
-  return res.send('Hello World')
-})
+server.use(express.json())
+server.use(routes)
 
 server.listen(process.env.PORT || 3001, process.env.IP, function() {
   console.log("Backend server is running!")

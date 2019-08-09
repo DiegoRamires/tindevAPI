@@ -24,6 +24,7 @@ module.exports = {
     const userExists = await Dev.findOne({ user: username })
 
     if (userExists) {
+      console.log(`User ${username} already exists`)
       return res.json(userExists)
     }
 
@@ -36,7 +37,9 @@ module.exports = {
       user: username,
       bio,
       avatar
-    })
+    },
+      console.log(`User ${username} created`)
+    )
 
     return res.json(dev)
   }
